@@ -83,7 +83,7 @@ export function AssetOfficeFile({ base64, filename }: Props): JSX.Element {
   }, [base64, filename]);
 
   if (error) {
-    return <div className="_asset-native-file-fallback">文档渲染失败：{error}</div>;
+    return <div className="_asset-native-file-fallback">Document render failed: {error}</div>;
   }
   return <div className="_asset-office-file" ref={containerRef} />;
 }
