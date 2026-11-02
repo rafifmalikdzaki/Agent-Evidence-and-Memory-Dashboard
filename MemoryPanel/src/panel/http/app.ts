@@ -15,6 +15,7 @@ import { registerAgentOverviewRoutes } from './routes/agent-overview.js';
 import { registerAgentLifecycleRoutes } from './routes/agent-lifecycle.js';
 import { registerKnowledgeRoutes } from './routes/knowledge/index.js';
 import { registerAuthRoutes, registerWoaIngressRoutes } from './routes/auth.js';
+import { registerProjectRoutes } from './routes/projects.js';
 
 const API_PREFIX = '/api/v1';
 
@@ -46,6 +47,8 @@ export function buildPanelApp(deps: PanelDeps): Hono {
   // Agent 生命周期业务路由：/agent/delete-cascade 在 control 层级联清 skill 再 archive
   registerAgentLifecycleRoutes(api, deps);
   registerKnowledgeRoutes(api, deps);
+  // Projects REST API：/api/v1/projects/*（slice 2，Panel-local store）
+  registerProjectRoutes(api, deps);
   app.route(API_PREFIX, api);
   // 仅当至少一个 header-injected Provider 已注册时才挂 ingress 中间件：
   // 该中间件会拦截"根路径 GET + 命中任一 Provider 的 ingressHeaderName"的请求
