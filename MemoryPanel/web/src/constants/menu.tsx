@@ -22,6 +22,7 @@ export type PageId =
   | 'code'
   | 'skills'
   | 'chat_memory'
+  | 'projects'
   | 'team_members'
   | 'team_agents'
   | 'api_keys'
@@ -49,6 +50,7 @@ export function usePageMeta(): Record<PageId, PageMeta> {
     wiki:            { id: 'wiki',            label: t('menu.wiki'), desc: t('menu.desc.wiki'), group: t('menu.group.assets'), order: 2 },
     code:            { id: 'code',            label: t('menu.code'), desc: t('menu.desc.code'), group: t('menu.group.assets'), order: 3 },
     skills:          { id: 'skills',          label: t('menu.skills'), desc: t('menu.desc.skills'), group: t('menu.group.assets'), order: 4 },
+    projects:        { id: 'projects',        label: t('menu.projects'), desc: t('menu.desc.projects'), group: t('menu.group.workbench'), order: 1 },
     chat_memory:     { id: 'chat_memory',     label: t('menu.chat_memory'), desc: t('menu.desc.chat_memory'), group: t('menu.group.assets'), order: 5 },
     team_members:    { id: 'team_members',    label: t('menu.team_members'), desc: t('menu.desc.team_members'), group: t('menu.group.organization'), order: 0 },
     team_agents:     { id: 'team_agents',     label: t('menu.team_agents'), desc: t('menu.desc.team_agents'), group: t('menu.group.organization'), order: 1 },
@@ -77,6 +79,7 @@ export const ITEM_ICON: Record<PageId, JSX.Element> = {
   code: <CodeIcon size={16} />,
   skills: <ToolsIcon size={16} />,
   chat_memory: <ChatIcon size={16} />,
+  projects: <DashboardIcon size={16} />,
 };
 
 /** 分组图标（工作台 / 可观测 / 组织与权限 / 资产管理） */
